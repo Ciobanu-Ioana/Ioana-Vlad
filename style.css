@@ -618,18 +618,29 @@ input:focus, textarea:focus{
 
 /* GLOW mare – acoperă plicul */
 .glow-big{
-    position: absolute; inset: -16%;
+    position: absolute;
+    inset: -16%;
     background: radial-gradient(circle at center,
-    rgba(255, 240, 200, 0.96) 0%,
-    rgba(255, 225, 160, 0.82) 28%,
-    rgba(255, 220, 145, 0.42) 56%,
-    rgba(255, 255, 255, 0) 100%);
-    opacity: 0; filter: blur(60px);
+      rgba(255, 240, 200, 0.96) 0%,
+      rgba(255, 225, 160, 0.82) 28%,
+      rgba(255, 220, 145, 0.42) 56%,
+      rgba(255, 255, 255, 0) 100%);
+    
+    opacity: 0.001; /* 🔑 NU 0 */
+    filter: blur(34px); /* 🔑 mai mic pt iOS */
     pointer-events: none;
+
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+
     transition: opacity 1.25s ease-out;
     z-index: 5;
 }
-.glow-big.on{ opacity: 1; }
+
+.glow-big.on{
+    opacity: 1;
+}
 
 /* Voal alb (curtain) pentru trecerea spre invitație */
 .envelope-veil{
@@ -684,14 +695,7 @@ input:focus, textarea:focus{
 }
 
 @supports (-webkit-touch-callout: none){
-  .glow-small,
-  .glow-big,
-  .envelope-veil{
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
-  }
-
-  .glow-big{ filter: blur(34px); }
+    .glow-big{ filter: blur(34px); }
 }
 
 /* reduce motion */
@@ -702,6 +706,7 @@ input:focus, textarea:focus{
     .glow-big,
     .envelope-veil{ transition: none !important; }
 }
+
 
 
 
