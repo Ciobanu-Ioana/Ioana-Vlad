@@ -674,8 +674,6 @@ input:focus, textarea:focus{
 /* mobile */
 @media (max-width: 480px){
     .seal-img{ width: clamp(120px, 34vw, 220px); }
-    .glow-big{ filter: blur(36px); }
-    .glow-small{ filter: blur(18px); }
 }
 
 
@@ -693,6 +691,7 @@ input:focus, textarea:focus{
     .glow-big,
     .envelope-veil{ transition: none !important; }
 }
+
 
 
 
