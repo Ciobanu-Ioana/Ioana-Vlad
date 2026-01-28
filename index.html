@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ioana & Vlad — Invitație Nuntă</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Cardo:wght@400;700&family=Montserrat:wght@300;400;500;600&family=Roboto+Mono:wght@300;400;500&family=Alex+Brush&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<section class="envelope-hero" id="envelopeScreen" aria-label="Plic sigilat">
+    <div class="envelope-scene">
+        <!-- corpul plicului (foto) -->
+        <img src="images/envelope_body.png" alt="" class="envelope-body" />
+
+        <div class="flap-wrap">
+            <!-- clapeta plicului (PNG transparență), se va roti ~90° -->
+            <img src="images/envelope_flap.png" alt="" class="envelope-flap" />
+
+            <!-- sigiliul PNG (poziționat pe clapetă, se ridică odată cu ea) -->
+            <button class="wax-seal" id="sealBtn" aria-label="Deschide plicul">
+                <img src="images/wax_seal.png" alt="" class="seal-img" />
+            </button>
+        </div>
+
+
+        <!-- straturile de lumină și voal -->
+        <div class="glow-small" aria-hidden="true"></div>
+        <div class="glow-big"   aria-hidden="true"></div>
+        <div class="envelope-veil" aria-hidden="true"></div>
+    </div>
+
+    <!--    &lt;!&ndash; textul sub plic (opțional) &ndash;&gt;-->
+    <!--    <p class="envelope-caption">Această invitație este exclusiv pentru tine</p>-->
+
+    <audio id="sealSound" src="sounds/seal.mp3"></audio>
+</section>
+
+<div id="invitation-pages" hidden>
+    <!-- PAGE ONE -->
+    <header class="hero page-one">
+        <div class="hero-inner">
+            <h1 class="couple-name reveal-fade" style="--sr-delay:0ms;">Ioana & Vlad</h1>
+            <p class="hero-sub reveal-up" style="--sr-delay:120ms;">Vă invităm să sărbătoriți alături de noi</p>
+        </div>
+
+        <p class="date-badge">17 Octombrie 2026</p>
+    </header>
+
+    <!-- PAGE TWO / POVESTEA -->
+    <section class="page-two">
+        <div class="container">
+            <div class="story-text">
+                <h2 class="section-title reveal-fade" style="--sr-delay:0ms;">Bine ați venit în<br>povestea noastră</h2>
+                <p class="section-lead reveal-up" style="--sr-delay:120ms;">
+                    Suntem recunăscători pentru fiecare persoană care face parte din drumul nostru.
+                    În această zi specială, vă invităm să fiți alături de noi pentru a sărbători iubirea,
+                    familia și începutul unei noi aventuri împreună.
+                </p>
+            </div>
+            <div class="story-image reveal-scale" style="--sr-delay:180ms;">
+                <img src="images/image-page2.png" alt="Ioana & Vlad" />
+            </div>
+        </div>
+        <!-- colțuri florale parallax, discrete -->
+        <img src="images/right-corner-flower.png" alt="" class="corner-decor corner-left"/>
+        <img src="images/left-corner-flower.png" alt="" class="corner-decor corner-right"/>
+    </section>
+
+    <!-- PAGE THREE -->
+    <section class="page-three">
+        <div class="container narrow">
+            <h2 class="section-title reveal-fade">Cu drag, alături de noi</h2>
+            <p class="section-quote reveal-blur" style="--sr-delay:120ms;">„Nimic nu ar fi la fel fără oamenii care ne-au ghidat, susținut și iubit.”</p>
+            <h3 class="group-title reveal-up" style="--sr-delay:180ms;">Părinții noștri</h3>
+            <div class="parents-container">
+                <div class="parent-card reveal-up" style="--sr-delay:220ms;">
+                    <span>Petronela & Ionel<br>Ciobanu</span>
+                </div>
+                <div class="parent-card reveal-up" style="--sr-delay:260ms;">
+                    <span>Marinela & Dorin<br>Lung</span>
+                </div>
+            </div>
+
+            <h3 class="group-title reveal-up" style="--sr-delay:300ms;">Nașii noștri</h3>
+            <div class="parents-container">
+                <div class="parent-card reveal-up" style="--sr-delay:340ms;">
+                    <span>Petronela & Ionel<br>Ciobanu</span>
+                </div>
+                <div class="parent-card reveal-up" style="--sr-delay:380ms;">
+                    <span>Petronela & Ionel<br>Ciobanu</span>
+                </div>
+            </div>
+
+            <p class="section-footnote reveal-fade" style="--sr-delay:420ms;">„Le suntem recunoscători pentru sprijinul, înțelepciunea și dragostea lor necondiționată.”</p>
+        </div>
+
+        <!-- Imaginea pe page 3 în colțul dreapta-jos -->
+        <img src="images/image-page3.png" alt="" class="image-page3"/>
+    </section>
+
+    <!-- PAGE FOUR / CÂND ȘI UNDE -->
+    <section class="page-four">
+        <h2 class="page-title reveal-fade">Când și Unde</h2>
+
+        <div class="image-text-container">
+            <!-- 1 -->
+            <div class="item card reveal-up" style="--sr-delay:100ms;">
+                <img src="images/image-page4.1.png" alt="Cununia civilă" class="image-four" />
+                <h3 class="item-title">Cununia Civilă</h3>
+                <p class="item-text">
+                    Parcul Central Municipal<br>
+                    17 octombrie 2026<br>
+                    Ora 14:30
+                </p>
+                <a href="https://maps.app.goo.gl/s8W4JKSSjDk8zYfG8" target="_blank" rel="noopener" class="location-box">Vezi harta</a>
+            </div>
+
+            <!-- 2 -->
+            <div class="item card reveal-up" style="--sr-delay:180ms;">
+                <img src="images/image-page4.2.png" alt="Ceremonia religioasă" class="image-four" />
+                <h3 class="item-title">Ceremonia Religioasă</h3>
+                <p class="item-text">
+                    Biserica Romano-Catolică Sf. Treime<br>
+                    17 octombrie 2026<br>
+                    Ora 16:00
+                </p>
+                <a href="https://maps.app.goo.gl/ALzWpgzNPTXptJMB8" target="_blank" rel="noopener" class="location-box">Vezi harta</a>
+            </div>
+
+            <!-- 3 -->
+            <div class="item card reveal-up" style="--sr-delay:260ms;">
+                <img src="images/image-page4.3.png" alt="Petrecerea" class="image-four" />
+                <h3 class="item-title">Petrecerea</h3>
+                <p class="item-text">
+                    Sala de evenimente Elegance Ballroom<br>
+                    17 octombrie 2026<br>
+                    Ora 18:00
+                </p>
+                <a href="https://maps.app.goo.gl/ztq9rq5fKrm13GtJ7" target="_blank" rel="noopener" class="location-box">Vezi harta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE FIVE / RSVP -->
+    <section class="page-five">
+        <h2 class="section-title reveal-fade">Așteptăm cu drag confirmarea ta</h2>
+
+        <form class="rsvp-form reveal-up" id="rsvpForm" novalidate>
+            <div class="form-group full-width">
+                <label for="guestName">Nume familie / invitat</label>
+                <input type="text" id="guestName" name="guestName" required placeholder="Ex: Popescu Ion" />
+                <small class="error-msg" aria-live="polite"></small>
+            </div>
+
+            <div class="form-group two-columns">
+                <label>Vei participa la eveniment?</label>
+                <div class="checkbox-group" role="radiogroup" aria-label="Participare">
+                    <label class="attendance-box">
+                        <input type="radio" name="attending" value="da" required />
+                        <span>Da, voi participa</span>
+                    </label>
+                    <label class="attendance-box">
+                        <input type="radio" name="attending" value="nu" />
+                        <span>Îmi pare rău, nu pot ajunge</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="guest-container">
+                <div class="guest-column">
+                    <label>Adulți</label>
+                    <div class="number-box" data-name="adults">
+                        <button type="button" class="minus" aria-label="scade adulți">−</button>
+                        <input type="number" min="1" value="1" readonly aria-label="număr adulți" />
+                        <button type="button" class="plus" aria-label="crește adulți">+</button>
+                    </div>
+                </div>
+
+                <div class="guest-column">
+                    <label>Copii</label>
+                    <div class="number-box" data-name="kids">
+                        <button type="button" class="minus" aria-label="scade copii">−</button>
+                        <input type="number" min="0" value="0" readonly aria-label="număr copii" />
+                        <button type="button" class="plus" aria-label="crește copii">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="message">Mesaj pentru noi</label>
+                <textarea id="message" name="message" rows="4" placeholder="Poți lăsa un mesaj pentru noi (opțional)"></textarea>
+            </div>
+
+            <div class="form-group full-width">
+                <button type="submit" class="submit-btn">Confirmă prezența</button>
+            </div>
+        </form>
+
+        <!-- feedback toast -->
+        <div id="toast" role="status" aria-live="polite" class="toast" hidden>Mulțumim! Ți-am înregistrat confirmarea. 💛</div>
+
+        <!-- colțuri florale discrete -->
+        <img src="images/right-corner-flower.png" alt="" class="corner-decor corner-left"/>
+        <img src="images/left-corner-flower.png" alt="" class="corner-decor corner-right"/>
+    </section>
+
+    <section class="page-contact">
+        <h2 class="contact-title reveal-fade">Contact</h2>
+
+        <div class="contact-image-wrapper reveal-up" style="--sr-delay:120ms;">
+            <img src="images/image-page6.png" alt="Cuplu" class="contact-image">
+        </div>
+
+        <div class="contact-info reveal-blur" style="--sr-delay:220ms;">
+            <p class="contact-note">Vă rugăm să confirmați prezența până la data de 02.10.2026</p>
+
+            <p>Familia Ciobanu: <a href="tel:0721777129">0721777129</a></p>
+            <p>Familia Lung: <a href="tel:0746149203">0746149203</a></p>
+            <p>Ioana Ciobanu: <a href="tel:0767785953">0767785953</a></p>
+            <p>Vlad Lung: <a href="tel:0745687150">0745687150</a></p>
+        </div>
+    </section>
+</div>
+
+<script>
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyNUC63-3UfyIw1xsPJLitpVOwr0NKa1-HIZPe5l_XtCEHAePAKBGpk_jCFKBZ2iCiXAg/exec';
+</script>
+
+
+<script src="script.js"></script>
+</body>
+</html>
