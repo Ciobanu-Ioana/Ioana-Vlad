@@ -694,14 +694,9 @@ input:focus, textarea:focus{
     }
 }
 
-@supports (-webkit-touch-callout: none) {
+@supports (-webkit-touch-callout: none){
   .glow-big{
-    filter: none !important;
-    background: radial-gradient(circle at center,
-      rgba(255,240,200,0.96) 0%,
-      rgba(255,225,160,0.82) 36%,
-      rgba(255,220,145,0.42) 62%,
-      rgba(255,255,255,0) 100%);
+    filter: none;
   }
 }
 
@@ -713,6 +708,7 @@ input:focus, textarea:focus{
     .glow-big,
     .envelope-veil{ transition: none !important; }
 }
+
 
 
 
