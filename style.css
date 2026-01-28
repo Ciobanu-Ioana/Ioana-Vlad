@@ -626,13 +626,8 @@ input:focus, textarea:focus{
       rgba(255, 220, 145, 0.42) 56%,
       rgba(255, 255, 255, 0) 100%);
     
-    opacity: 0.001; /* 🔑 NU 0 */
-    filter: blur(34px); /* 🔑 mai mic pt iOS */
+    opacity: 0
     pointer-events: none;
-
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    backface-visibility: hidden;
 
     transition: opacity 1.25s ease-out;
     z-index: 5;
@@ -694,9 +689,29 @@ input:focus, textarea:focus{
     }
 }
 
-@supports (-webkit-touch-callout: none){
+@supports (-webkit-touch-callout: none) {
+
+  /* ==== GLOW BIG – fără opacity animat ==== */
   .glow-big{
-    filter: none;
+    opacity: 1 !important;              /* nu se mai animează */
+    filter: none !important;            /* evităm glitch */
+    transform: scale(0.88);
+    transition: transform 1.25s ease-out;
+  }
+
+  .glow-big.on{
+    transform: scale(1);
+  }
+
+  /* ==== VEIL – fără opacity animat ==== */
+  .envelope-veil{
+    opacity: 1 !important;
+    transform: scale(0.96);
+    transition: transform 720ms ease-out;
+  }
+
+  .envelope-veil.on{
+    transform: scale(1);
   }
 }
 
@@ -706,8 +721,9 @@ input:focus, textarea:focus{
     .wax-seal,
     .glow-small,
     .glow-big,
-    .envelope-veil{ transition: none !important; }
+   /* .envelope-veil{ transition: none !important; }*/
 }
+
 
 
 
