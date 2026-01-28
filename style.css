@@ -689,8 +689,10 @@ input:focus, textarea:focus{
     .wax-seal,
     .glow-small,
     .glow-big,
-    .envelope-veil{ transition: none !important; }
+    .envelope-veil
+
 }
+
 
 
 
