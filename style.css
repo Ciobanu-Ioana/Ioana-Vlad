@@ -672,7 +672,7 @@ input:focus, textarea:focus{
 .wax-seal.stretch    { animation: sealPeel  320ms ease-out both; }
 
 /* mobile */
-@media (max-width: 480px){
+@media (max-width: 460px){
     .seal-img{ width: clamp(120px, 34vw, 220px); }
 }
 
@@ -691,6 +691,7 @@ input:focus, textarea:focus{
     .glow-big,
     .envelope-veil{ transition: none !important; }
 }
+
 
 
 
