@@ -160,7 +160,7 @@
             }
         });
 
-        accommodationGroup?.classList.add('disabled');
+        accommodationGroup?.closest('.form-group')?.classList.add('disabled');
     }
 
     function enableAccommodation(){
@@ -175,7 +175,7 @@
             }
         });
 
-        accommodationGroup?.classList.remove('disabled');
+        accommodationGroup?.closest('.form-group')?.classList.remove('disabled');
     }
 
     function updateState(){
@@ -356,3 +356,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
