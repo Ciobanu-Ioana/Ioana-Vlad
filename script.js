@@ -253,7 +253,7 @@
 
         try {
             const payload = {
-                guestName: name, attending, adults, kids, message,
+                guestName: name, attending, adults, kids, accommodation,  message,
                 _ua: navigator.userAgent,
                 _ref: document.referrer || location.href,
                 _ip: '' // (opțional) dacă vei popula IP aproximativ din client
@@ -356,5 +356,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
 
 
