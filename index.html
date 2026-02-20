@@ -191,6 +191,52 @@
                 </div>
             </div>
 
+            <div class="form-group two-columns">
+                <label>Doriți să vă rezervăm cazare?</label>
+                <div class="checkbox-group" role="radiogroup" aria-label="Rezervare">
+                    <label class="attendance-box">
+                        <input type="radio" name="accommodation" value="da" required />
+                        <span>Da, dorim rezervare</span>
+                    </label>
+                    <label class="attendance-box">
+                        <input type="radio" name="accommodation" value="nu" />
+                        <span>Nu, ne ocupăm noi</span>
+                    </label>
+                </div>
+            </div>
+
+            <div id="accommodationModal" class="modal" hidden>
+                <div class="modal-content">
+                    <button class="modal-close" id="closeAccommodationModal" aria-label="Închide">&times;</button>
+
+                    <h2 class="modal-title">Detalii Cazare</h2>
+
+                    <p class="modal-text">
+                        Dacă ai nevoie de cazare doar pentru seara evenimentului sau și pentru vineri,
+                        ne poți menționa acest lucru în mesajul de la finalul formularului.
+                        Te ajutăm cu drag.
+                    </p>
+
+                    <p class="modal-text">
+                        Pentru a putea organiza totul din timp, ne-ar ajuta să știm preferința ta
+                        până la data de <strong>17 august 2026</strong>.
+                    </p>
+
+                    <p class="modal-text">
+                        Dacă ai întrebări sau anumite preferințe legate de cazare,
+                        ne poți scrie oricând cu drag.
+                    </p>
+
+                    <p class="modal-note">
+                        *După ce primim preferințele tale, revenim noi cu detaliile legate de rezervare.*
+                    </p>
+
+                    <div class="modal-divider"></div>
+
+                    <button class="modal-ok" id="okAccommodationBtn">Am înțeles</button>
+                </div>
+            </div>
+
             <div class="form-group full-width">
                 <label for="message">Mesaj pentru noi</label>
                 <textarea id="message" name="message" rows="4" placeholder="Poți lăsa un mesaj pentru noi (opțional)"></textarea>
@@ -234,4 +280,5 @@
 
 <script src="script.js"></script>
 </body>
+
 </html>
