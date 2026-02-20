@@ -74,6 +74,12 @@
     if(!form) return;
 
     const radios = form.querySelectorAll('input[name="attending"]');
+    const accommodationRadios = form.querySelectorAll('input[name="accommodation"]');
+    const accommodationGroup = form.querySelector('input[name="accommodation"]')?.closest('.form-group');
+    const accYes = form.querySelector('input[name="accommodation"][value="da"]');
+    const modal = document.getElementById("accommodationModal");
+    const closeModal = document.getElementById("closeAccommodationModal");
+    const okBtn = document.getElementById("okAccommodationBtn");
     const numAdultsBox = form.querySelector('.number-box[data-name="adults"]');
     const numKidsBox   = form.querySelector('.number-box[data-name="kids"]');
     const adultsInput  = numAdultsBox?.querySelector('input');
@@ -83,10 +89,21 @@
     const kidsMinus    = numKidsBox?.querySelector('.minus');
     const kidsPlus     = numKidsBox?.querySelector('.plus');
 
-    function setSelectedHighlight(){
-        // highlight pentru etichetele attendance-box
-        form.querySelectorAll('.attendance-box').forEach(l => l.classList.remove('selected'));
-        const checked = form.querySelector('input[name="attending"]:checked');
+    // function setSelectedHighlight(){
+    //     // highlight pentru etichetele attendance-box
+    //     form.querySelectorAll('.attendance-box').forEach(l => l.classList.remove('selected'));
+    //     const checked = form.querySelector('input[name="attending"]:checked');
+    //     if(checked) checked.closest('.attendance-box').classList.add('selected');
+    // }
+
+   function setSelectedHighlight(groupName){
+        const inputs = form.querySelectorAll(`input[name="${groupName}"]`);
+
+        inputs.forEach(input => {
+            input.closest('.attendance-box')?.classList.remove('selected');
+        });
+
+        const checked = form.querySelector(`input[name="${groupName}"]:checked`);
         if(checked) checked.closest('.attendance-box').classList.add('selected');
     }
 
@@ -129,19 +146,70 @@
         }
     }
 
+   function disableAccommodation(){
+        accommodationRadios.forEach(r => {
+            r.checked = false;
+            r.setAttribute('disabled', 'true');
+            r.setAttribute('aria-disabled', 'true');
+        });
+
+        form.querySelectorAll('.attendance-box').forEach(b => {
+            if(b.querySelector('input[name="accommodation"]')){
+                b.classList.remove('selected');
+                b.classList.add('disabled');
+            }
+        });
+
+        accommodationGroup?.classList.add('disabled');
+    }
+
+    function enableAccommodation(){
+        accommodationRadios.forEach(r => {
+            r.removeAttribute('disabled');
+            r.setAttribute('aria-disabled', 'false');
+        });
+
+        form.querySelectorAll('.attendance-box').forEach(b => {
+            if(b.querySelector('input[name="accommodation"]')){
+                b.classList.remove('disabled');
+            }
+        });
+
+        accommodationGroup?.classList.remove('disabled');
+    }
+
     function updateState(){
-        setSelectedHighlight();
+        setSelectedHighlight("attending");
+        setSelectedHighlight("accommodation");
         const attending = (form.querySelector('input[name="attending"]:checked') || {}).value;
         if(attending === 'nu'){
             disableGuests();
+            disableAccommodation();
         } else if(attending === 'da'){
             enableGuests();
+            enableAccommodation();
         }
     }
 
     radios.forEach(r => r.addEventListener('change', updateState));
     // init on load
     updateState();
+
+   accommodationRadios.forEach(r => r.addEventListener('change', () => {
+        setSelectedHighlight("accommodation");
+    }));
+
+    accYes?.addEventListener('click', () => {
+        if (modal && modal.hidden) {
+            modal.hidden = false;
+        }
+    });
+
+    closeModal?.addEventListener("click", () => { modal.hidden = true; });
+    okBtn?.addEventListener("click", () => { modal.hidden = true; });
+    modal?.addEventListener("click", (e) => {
+        if (e.target === modal) modal.hidden = true;
+    });
 
     // Securitate suplimentară la submit: dacă "nu", forțăm 0/0.
     form.addEventListener('submit', () => {
@@ -168,6 +236,7 @@
         const nameInput = form.querySelector('#guestName');
         const name      = nameInput.value.trim();
         const attending = (form.querySelector('input[name="attending"]:checked') || {}).value || '';
+        const accommodation = attending === 'da' ? (form.querySelector('input[name="accommodation"]:checked') || {}).value || '' : '';
         const adults    = Number((form.querySelector('.number-box[data-name="adults"] input') || {}).value || 0);
         const kids      = Number((form.querySelector('.number-box[data-name="kids"] input') || {}).value || 0);
         const message   = (form.querySelector('#message') || {}).value || '';
@@ -175,6 +244,7 @@
         // Validări minime
         if(!name){ err.textContent = 'Te rugăm să completezi numele.'; nameInput.focus(); return; }
         if(!attending){ err.textContent = 'Selectează dacă vei participa.'; return; }
+        if(attending === 'da' && !accommodation){ err.textContent = 'Selectează dacă vei avea nevoie de rezervare pentru cazare.'; return; }
         err.textContent = '';
 
         const btn = form.querySelector('.submit-btn');
@@ -284,4 +354,5 @@ document.addEventListener('DOMContentLoaded', () => {
             screen.style.display = 'none';
         }, 2300);
     });
+
 });
