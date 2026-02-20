@@ -75,7 +75,7 @@
 
     const radios = form.querySelectorAll('input[name="attending"]');
     const accommodationRadios = form.querySelectorAll('input[name="accommodation"]');
-    const accommodationGroup = form.querySelector('input[name="accommodation"]')?.closest('.form-group');
+    const accommodationGroup = form.querySelector('input[name="accommodation"]');
     const accYes = form.querySelector('input[name="accommodation"][value="da"]');
     const modal = document.getElementById("accommodationModal");
     const closeModal = document.getElementById("closeAccommodationModal");
@@ -356,4 +356,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
 
