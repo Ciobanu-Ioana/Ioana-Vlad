@@ -376,7 +376,7 @@ input:focus, textarea:focus{
     font-size: 1rem; height: 42px; color: var(--ink);
 }
 
-.number-box.disabled {
+.number-box.disabled, .form-group.disabled .attendance-box span {
     opacity: .5;
     pointer-events: none;
 }
@@ -816,6 +816,7 @@ input:focus, textarea:focus{
     .glow-big,
     .envelope-veil{ transition: none !important; }
 }
+
 
 
 
