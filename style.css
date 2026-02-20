@@ -352,7 +352,7 @@ input:focus, textarea:focus{
 .guest-column label{ font-weight:600; }
 
 
-.guest-column.disabled {
+.guest-column.disabled, .form-group.disabled {
     opacity: .6;
     filter: grayscale(20%);
 }
@@ -816,6 +816,7 @@ input:focus, textarea:focus{
     .glow-big,
     .envelope-veil{ transition: none !important; }
 }
+
 
 
 
