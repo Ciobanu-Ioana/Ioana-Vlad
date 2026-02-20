@@ -400,6 +400,124 @@ input:focus, textarea:focus{
     box-shadow: 0 10px 24px rgba(0,0,0,0.14);
 }
 
+/* ====== POP-UP ELEGANT ====== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal[hidden] { display: none; }
+
+.modal-content {
+    position: relative;
+    width: min(90vw, 440px);
+    background: #fffdf8;
+    padding: 38px 30px 46px;
+    border-radius: 18px;
+    border: 1.8px solid #e6d7c1;
+    box-shadow: 0 10px 42px rgba(0,0,0,0.25);
+    animation: modalFade .28s ease;
+    font-family: "Cardo", serif;
+}
+
+@keyframes modalFade {
+    0%   { opacity: 0; transform: translateY(18px) scale(.94); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* X button */
+.modal-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #7f6a55;
+    cursor: pointer;
+    transition: opacity .2s ease;
+}
+.modal-close:hover { opacity: .6; }
+
+/* Decorative elements */
+.modal-decor-top,
+.modal-decor-bottom {
+    width: 100%;
+    height: 34px;
+    background: url("https://i.ibb.co/QFtV6m1/gold-decor.png") center/contain no-repeat;
+    opacity: .6;
+}
+
+
+/* Title */
+.modal-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.9rem;
+    text-align: center;
+    color: #6f5644;
+    margin-bottom: 14px;
+}
+
+/* Text */
+.modal-text {
+    font-size: 1.05rem;
+    color: #4d453b;
+    line-height: 1.55;
+    margin-bottom: 16px;
+}
+
+/* Small note */
+.modal-note {
+    font-size: .9rem;
+    color: #756b58;
+    font-style: italic;
+    line-height: 1.45;
+    margin-top: 6px;
+    margin-bottom: 22px;
+}
+
+/* Elegant divider */
+.modal-divider {
+    width: 80%;
+    height: 1.6px;
+    background: linear-gradient(to right, transparent, #d9c8a6, transparent);
+    margin: 16px auto 26px;
+    opacity: .9;
+}
+
+/* Button */
+.modal-ok {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background: linear-gradient(135deg, #e5d3b3, #d1bc97);
+    border: none;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    color: #4a3c2a;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .18s ease, opacity .2s ease;
+}
+
+.modal-ok:hover {
+    transform: translateY(-2px);
+    opacity: .92;
+}
+
+/* Mobile */
+@media (max-width: 480px){
+    .modal-content { padding: 30px 22px 38px; }
+    .modal-title { font-size: 1.65rem; }
+}
+
 /* Toast */
 .toast{
     position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
@@ -698,6 +816,7 @@ input:focus, textarea:focus{
     .glow-big,
     .envelope-veil{ transition: none !important; }
 }
+
 
 
 
