@@ -241,6 +241,26 @@
         const kids      = Number((form.querySelector('.number-box[data-name="kids"] input') || {}).value || 0);
         const message   = (form.querySelector('#message') || {}).value || '';
 
+         nameInput.addEventListener('input', () => {
+            err.textContent = '';
+        });
+
+        form.querySelectorAll('input[name="attending"]').forEach(r => {
+            r.addEventListener('change', () => {
+                err.textContent = '';
+            });
+        });
+
+        form.querySelectorAll('input[name="accommodation"]').forEach(r => {
+            r.addEventListener('change', () => {
+                err.textContent = '';
+            });
+        });
+
+        form.addEventListener('reset', () => {
+            err.textContent = '';
+        });
+
         // Validări minime
         if(!name){ err.textContent = 'Te rugăm să completezi numele.'; nameInput.focus(); return; }
         if(!attending){ err.textContent = 'Selectează dacă vei participa.'; return; }
@@ -356,6 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
 
 
 
