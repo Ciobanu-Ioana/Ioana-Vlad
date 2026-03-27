@@ -673,7 +673,7 @@ input:focus, textarea:focus{
 /*Envelope*/
 
 .envelope-hero{
-    height: 100dvh; min-height: 100svh; width: 100vw;
+    min-height: 100vh; height: auto; width: 100vw;
     display: grid;
     grid-template-rows: 1fr auto;
     align-items: end;
@@ -685,10 +685,12 @@ input:focus, textarea:focus{
 
 .envelope-scene{
     position: relative;
-    width: 100vw;
-    height: 100dvh;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
     perspective: 1200px;
     isolation: isolate;
+    overflow: visible;
 }
 
 .envelope-body{
@@ -711,6 +713,11 @@ input:focus, textarea:focus{
     transition:
             transform 2.4s cubic-bezier(.17,.67,.38,1.22),
             filter   2.4s ease;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;   /* Safari fix */
+    will-change: transform;
+
 }
 .flap-wrap.open{
     transform: rotateX(40deg);
@@ -725,6 +732,11 @@ input:focus, textarea:focus{
     object-fit: cover;
     overflow: visible;
     display: block;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;   /* Safari fix */
+    will-change: transform;
+
 }
 
 .wax-seal{
@@ -734,6 +746,11 @@ input:focus, textarea:focus{
     transform: translate(-50%, -50%) translateZ(2px);
     background: none; border: none; padding: 0; cursor: pointer;
     z-index: 4;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;   /* Safari fix */
+    will-change: transform;
+
 }
 .seal-img{
     width: clamp(130px, 28vw, 260px);
