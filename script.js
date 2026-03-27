@@ -376,7 +376,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-
+window.addEventListener('load', () => {
+    const flap = document.querySelector('.flap-wrap');
+    if (flap) {
+        // forțează rerandarea clapetei după ce sunt încărcate imaginile
+        const old = flap.style.transform;
+        flap.style.transform = old;   // Safari repaint trick
+    }
+});
+``
 
 
 
