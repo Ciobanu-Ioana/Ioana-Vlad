@@ -280,7 +280,14 @@ h1,h2,h3{ font-family: 'Playfair Display', serif; font-weight: 600; line-height:
     box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 
-.add-to-calendar-btn {
+.calendar-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.addeventatc {
     display: inline-block !important;
     margin: 40px auto 0;
     padding: 14px 26px;
@@ -304,13 +311,13 @@ h1,h2,h3{ font-family: 'Playfair Display', serif; font-weight: 600; line-height:
     max-width: none !important;
 }
 
-.add-to-calendar-btn:hover {
+.addeventatc:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 24px rgba(0,0,0,0.16);
 }
 
 @media (max-width: 600px){
-    .add-to-calendar-btn {
+    .addeventatc {
         padding: 16px 28px;
         font-size: 1.05rem;
     }
