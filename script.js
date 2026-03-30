@@ -384,7 +384,31 @@ window.addEventListener('load', () => {
         flap.style.transform = old;   // Safari repaint trick
     }
 });
-``
+
+const addToCalendarBtn = document.getElementById('addToCalendarBtn');
+
+    const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isDesktop = !isiOS && !isAndroid;
+
+    const icsURL = "/images/nunta-ioana-vlad.ics";
+
+
+    document.getElementById("addToCalendarBtn").addEventListener("click", function() {
+
+        if (isiOS) {
+            window.location.href = "/calendar/nunta.ics";
+            return;
+        }
+        const googleCallURL =
+            "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+            "&text=Nunta+Ioana+%26+Vlad" +
+            "&dates=20261017T150000/20261017T230000" +
+            "&details=Vă așteptăm cu drag să celebrăm împreună! 💛" +
+            "&location=Zalău";
+
+        window.location.href = googleCallURL;
+    });
 
 
 
