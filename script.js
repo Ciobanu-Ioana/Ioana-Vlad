@@ -397,7 +397,7 @@ const addToCalendarBtn = document.getElementById('addToCalendarBtn');
     document.getElementById("addToCalendarBtn").addEventListener("click", function() {
 
         if (isiOS) {
-            window.location.href = "/calendar/nunta.ics";
+            window.location.href = "/images/nunta-ioana-vlad.ics";
             return;
         }
         const googleCallURL =
