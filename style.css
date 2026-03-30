@@ -698,7 +698,7 @@ input:focus, textarea:focus{
     position: relative;
     width: 100%;
     min-height: 100vh;
-    height: 100vh;
+    height: auto;
     perspective: 1200px;
     isolation: isolate;
     overflow: visible;
@@ -739,8 +739,7 @@ input:focus, textarea:focus{
 
 .envelope-flap{
     position: absolute; inset: 0;
-    width: 100%;
-    clip-path: polygon(0 0, 100% 0, 50% 72%);
+    width: 100%; height: 63%;
     object-fit: cover;
     overflow: visible;
     display: block;
@@ -850,22 +849,20 @@ input:focus, textarea:focus{
 
 /* mobile */
 @media (max-width: 480px){
-    .envelope-flap{
-        clip-path: polygon(0 0, 100% 0, 50% 78%);
-    }
-
     .seal-img{
         width: clamp(120px, 34vw, 220px);
-    }
-
-    .wax-seal{
-        top: 60%;
     }
 }
 
 @media (max-width: 1000px){
     .envelope-flap{
-        clip-path: polygon(0 0, 100% 0, 50% 79%);
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px){
+    .envelope-flap{
+        height: 68%;
     }
 }
 
