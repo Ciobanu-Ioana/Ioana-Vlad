@@ -385,23 +385,9 @@ window.addEventListener('load', () => {
     }
 });
 
-const btn = document.getElementById("addToCalendar");
+/* global addeventatc */
+window.addeventasync = function(){
+    addeventatc.direct = 1;
+    addeventatc.caldropdown = 0;
 
-const isiOS = ["iPhone", "iPad", "iPod"].includes(navigator.platform);
-
-const icsURL = "/images/nunta-ioana-vlad.ics";
-
-const googleCalURL =
-    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-    "&text=Nunta+Ioana+%26+Vlad" +
-    "&dates=20261017T150000/20261017T230000" +
-    "&location=Zalau" +
-    "&details=Vă așteptăm cu drag să celebrăm împreună! 💛";
-
-btn.addEventListener("click", () => {
-    if (isiOS) {
-        window.location.href = icsURL;
-    } else {
-        window.location.href = googleCalURL;
-    }
-});
+};
