@@ -698,8 +698,7 @@ input:focus, textarea:focus{
     position: relative;
     width: 100%;
     min-height: 100vh;
-    height: auto;
-    aspect-ratio: 1.72 / 1;
+    height: 100vh;
     perspective: 1200px;
     isolation: isolate;
     overflow: visible;
@@ -740,15 +739,11 @@ input:focus, textarea:focus{
 
 .envelope-flap{
     position: absolute; inset: 0;
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 50% 72%);
     object-fit: cover;
     overflow: visible;
     display: block;
-
-    top: -18%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: auto;
 
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;   /* Safari fix */
@@ -853,30 +848,24 @@ input:focus, textarea:focus{
 .wax-seal.pre-release{ animation: sealShake 280ms ease-in-out both; }
 .wax-seal.stretch    { animation: sealPeel  320ms ease-out both; }
 
-/* --- MOBILE OPTIMIZAT --- */
+/* mobile */
 @media (max-width: 480px){
-
     .envelope-flap{
-        width: 115%;        /* îl facem puuțin mai lat ca să acopere perfect marginile */
-        height: auto;
-        top: -22%;          /* ajustare verticală ca să pice fix pe linia de îmbinare */
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .envelope-body{
-        width: 100%;
-        height: auto;
+        clip-path: polygon(0 0, 100% 0, 50% 78%);
     }
 
     .seal-img{
-        width: clamp(120px, 32vw, 200px);
+        width: clamp(120px, 34vw, 220px);
+    }
+
+    .wax-seal{
+        top: 60%;
     }
 }
-@media (max-width: 768px){
+
+@media (max-width: 1000px){
     .envelope-flap{
-        width: 108%;
-        top: -20%;
+        clip-path: polygon(0 0, 100% 0, 50% 79%);
     }
 }
 
