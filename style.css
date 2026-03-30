@@ -739,7 +739,7 @@ input:focus, textarea:focus{
 
 .envelope-flap{
     position: absolute; inset: 0;
-    width: 100%; height: 63%;
+    width: 100%; height: 45%;
     object-fit: cover;
     overflow: visible;
     display: block;
@@ -854,14 +854,9 @@ input:focus, textarea:focus{
     }
 }
 
-@media (max-width: 1000px){
-    .envelope-flap{
-        height: 100%;
-    }
-}
+@media (max-width: 1000px) {
 
-@media (max-width: 768px){
-    .envelope-flap{
+    .envelope-flap {
         height: 68%;
     }
 }
