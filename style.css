@@ -793,49 +793,31 @@ input:focus, textarea:focus{
 .glow-small.on{ opacity: 1; }
 
 /* GLOW mare – acoperă plicul */
-/* .glow-big{
-    position: absolute; inset: -16%;
-    background: radial-gradient(circle at center,
-    rgba(255, 240, 200, 0.96) 0%,
-    rgba(255, 225, 160, 0.82) 28%,
-    rgba(255, 220, 145, 0.42) 56%,
-    rgba(255, 255, 255, 0) 100%);
-    opacity: 0; filter: blur(60px);
+.glow-big{
+    position: absolute;
+    inset: -10%;
+    opacity: 0;
+    /*background: radial-gradient(circle at center,*/
+    /*rgba(255, 240, 200, 0.96) 0%,*/
+    /*rgba(255, 225, 160, 0.82) 25%,*/
+    /*rgba(255, 220, 145, 0.42) 50%,*/
+    /*rgba(255, 255, 255, 0) 70%);*/
+
+    background:
+            radial-gradient(circle,
+            rgba(255, 240, 200, 0.8),
+            rgba(255, 225, 160, 0.5),
+            transparent 60%),
+            radial-gradient(circle,
+            rgba(255,255,255,0.5),
+            transparent 70%);
+
+    /*filter: blur(60px);*/
     pointer-events: none;
     transition: opacity 1.25s ease-out;
     z-index: 5;
 }
-.glow-big.on{ opacity: 1; } */
-.glow-big{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 140%;
-    height: 140%;
-
-    transform: translate(-50%, -50%);
-
-    background: radial-gradient(circle,
-        rgba(255, 240, 200, 0.9) 0%,
-        rgba(255, 220, 150, 0.6) 25%,
-        rgba(255, 210, 140, 0.2) 50%,
-        transparent 70%
-    );
-
-    /* 🔥 CHEIA: mask rotund */
-    -webkit-mask-image: radial-gradient(circle, black 50%, transparent 70%);
-    mask-image: radial-gradient(circle, black 50%, transparent 70%);
-
-    opacity: 0;
-    transition: opacity 1.2s ease;
-
-    pointer-events: none;
-    z-index: 5;
-}
-
-.glow-big.on{
-    opacity: 1;
-}
+.glow-big.on{ opacity: 1; }
 
 /* Voal alb (curtain) pentru trecerea spre invitație */
 .envelope-veil{
