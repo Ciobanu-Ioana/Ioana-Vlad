@@ -327,12 +327,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const flapWrap   = document.querySelector('.flap-wrap');   // <— containerul 3D
     const glowSmall  = document.querySelector('.glow-small');
-    // const glowBig    = document.querySelector('.glow-big');
-    const envelopeBody = document.querySelector('.envelope-body');
+    const glowBig    = document.querySelector('.glow-big');
     const veil       = document.querySelector('.envelope-veil');
     const invitation = document.getElementById('invitation-pages');
 
-    if (!sealBtn || !flapWrap || !glowSmall || !envelopeBody || !veil || !invitation) return;
+    if (!sealBtn || !flapWrap || !glowSmall || !glowBig || !veil || !invitation) return;
 
     sealBtn.addEventListener('click', () => {
         if (sound) { try { sound.currentTime = 0; sound.play(); } catch(_){} }
@@ -354,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 3) glow mare
         setTimeout(() => {
-            envelopeBody.classList.add('glow-on');
+            glowBig.classList.add('on');
         }, 1200);
 
         // 4) voal alb
