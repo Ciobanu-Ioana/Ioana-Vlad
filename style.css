@@ -65,15 +65,15 @@ h1,h2,h3{ font-family: 'Playfair Display', serif; font-weight: 600; line-height:
 }
 .container.narrow{ max-width: 900px; }
 
-/*!* Cards *!*/
-/*.card{*/
-/*    background: rgba(255,255,255,0.6);*/
-/*    backdrop-filter: blur(2px);*/
-/*    border-radius: var(--radius);*/
-/*    box-shadow: var(--shadow-soft);*/
-/*    padding: clamp(16px, 2.6vw, 24px);*/
-/*    border: 1px solid rgba(0,0,0,0.06);*/
-/*}*/
+/* Cards */
+.card{
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(2px);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    padding: clamp(16px, 2.6vw, 24px);
+    border: 1px solid rgba(0,0,0,0.06);
+}
 
 /* Gradient separators (luxury accent) */
 .section-title::after, .page-title::after{
@@ -427,13 +427,14 @@ input:focus, textarea:focus{
 .submit-btn{
     margin-top: 8px;
     padding: 14px 22px;
-    border: 2px solid transparent; border-radius: 12px;
+    border:none; border-radius: 12px;
     font-size: 1.05rem; font-weight: 600;
     color: var(--ink);
     cursor: pointer;
     background:
             linear-gradient(#e8c7b3, #e8c7b3) padding-box,
             var(--gold-grad) border-box;
+    border: 2px solid transparent;
     transition: transform .2s ease, box-shadow .3s ease, background .3s ease;
 }
 .submit-btn:hover{
@@ -699,7 +700,7 @@ input:focus, textarea:focus{
     min-height: 100vh;
     height: auto;
     perspective: 1200px;
-    isolation: auto;
+    isolation: isolate;
     overflow: visible;
 }
 
@@ -791,33 +792,20 @@ input:focus, textarea:focus{
 }
 .glow-small.on{ opacity: 1; }
 
- /*GLOW mare – acoperă plicul */
+/* GLOW mare – acoperă plicul */
 .glow-big{
-    position: absolute;
-    inset: -10%;
-    opacity: 0;
-    /*background: radial-gradient(circle at center,*/
-    /*rgba(255, 240, 200, 0.96) 0%,*/
-    /*rgba(255, 225, 160, 0.82) 25%,*/
-    /*rgba(255, 220, 145, 0.42) 50%,*/
-    /*rgba(255, 255, 255, 0) 70%);*/
-
-    background:
-            radial-gradient(circle,
-            rgba(255, 240, 200, 0.8),
-            rgba(255, 225, 160, 0.5),
-            transparent 60%),
-            radial-gradient(circle,
-            rgba(255,255,255,0.5),
-            transparent 70%);
-
-    /*filter: blur(60px);*/
+    position: absolute; inset: -16%;
+    background: radial-gradient(circle at center,
+    rgba(255, 240, 200, 0.96) 0%,
+    rgba(255, 225, 160, 0.82) 28%,
+    rgba(255, 220, 145, 0.42) 56%,
+    rgba(255, 255, 255, 0) 100%);
+    opacity: 0; filter: blur(60px);
     pointer-events: none;
     transition: opacity 1.25s ease-out;
-    z-index: 2;
+    z-index: 5;
 }
 .glow-big.on{ opacity: 1; }
-
 
 /* Voal alb (curtain) pentru trecerea spre invitație */
 .envelope-veil{
@@ -881,5 +869,4 @@ input:focus, textarea:focus{
     .glow-big,
     .envelope-veil{ transition: none !important; }
 }
-
 
