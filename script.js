@@ -328,10 +328,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const flapWrap   = document.querySelector('.flap-wrap');   // <— containerul 3D
     const glowSmall  = document.querySelector('.glow-small');
     const glowBig    = document.querySelector('.glow-big');
-    const veil       = document.querySelector('.envelope-veil');
     const invitation = document.getElementById('invitation-pages');
 
-    if (!sealBtn || !flapWrap || !glowSmall || !glowBig || !veil || !invitation) return;
+    if (!sealBtn || !flapWrap || !glowSmall || !glowBig || !invitation) return;
 
     sealBtn.addEventListener('click', () => {
         if (sound) { try { sound.currentTime = 0; sound.play(); } catch(_){} }
@@ -356,19 +355,14 @@ document.addEventListener('DOMContentLoaded', () => {
             glowBig.classList.add('on');
         }, 1200);
 
-        // 4) voal alb
-        setTimeout(() => {
-            veil.classList.add('on');
-        }, 1600);
-
-        // 5) invitația apare
+        // 4) invitația apare
         setTimeout(() => {
             invitation.hidden = false;
             invitation.classList.add('appear');
             window.scrollTo({ top: 0, behavior: 'instant' });
         }, 1900);
 
-        // 6) ascundem plicul
+        // 5) ascundem plicul
         setTimeout(() => {
             screen.style.display = 'none';
         }, 2300);
