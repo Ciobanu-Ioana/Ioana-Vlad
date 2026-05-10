@@ -807,6 +807,20 @@ input:focus, textarea:focus{
 }
 .glow-big.on{ opacity: 1; }
 
+/* Voal alb (curtain) pentru trecerea spre invitație */
+.envelope-veil{
+    position: absolute; inset: -20%;
+    background: radial-gradient(circle at center,
+    rgba(255,255,255,0.0) 0%,
+    rgba(255,255,255,0.0) 40%,
+    rgba(255,255,255,0.88) 72%,
+    rgba(255,255,255,1)   100%);
+    opacity: 0; filter: blur(12px);
+    pointer-events: none;
+    transition: opacity 720ms ease-out;
+    z-index: 6;
+}
+.envelope-veil.on{ opacity: 1; }
 
 /* !*(opțional) text sub plic*!*/
 /*.envelope-caption{*/
@@ -852,6 +866,6 @@ input:focus, textarea:focus{
     .flap-wrap,
     .wax-seal,
     .glow-small,
-    .glow-big
+    .glow-big,
+    .envelope-veil{ transition: none !important; }
 }
-
