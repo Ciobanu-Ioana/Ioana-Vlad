@@ -793,7 +793,7 @@ input:focus, textarea:focus{
 .glow-small.on{ opacity: 1; }
 
 /* GLOW mare – acoperă plicul */
-.glow-big{
+/* .glow-big{
     position: absolute; inset: -16%;
     background: radial-gradient(circle at center,
     rgba(255, 240, 200, 0.96) 0%,
@@ -805,7 +805,40 @@ input:focus, textarea:focus{
     transition: opacity 1.25s ease-out;
     z-index: 5;
 }
-.glow-big.on{ opacity: 1; }
+.glow-big.on{ opacity: 1; } */
+.glow-big{
+    position: absolute;
+    inset: -12%;
+
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+
+    /*Glow cinematic în straturi */
+    background:
+            radial-gradient(circle at center,
+            rgba(255, 240, 200, 0.95) 0%,
+            rgba(255, 225, 160, 0.7) 20%,
+            rgba(255, 210, 140, 0.35) 40%,
+            rgba(255, 200, 120, 0.12) 60%,
+            rgba(255,255,255,0) 75%
+            ),
+            radial-gradient(circle at center,
+            rgba(255,255,255,0.6) 0%,
+            rgba(255,255,255,0.2) 30%,
+            transparent 65%
+            );
+
+    transition: opacity 1.3s cubic-bezier(.22,.7,.2,1);
+    transform: translateZ(0);
+    will-change: opacity, transform;
+
+}
+
+.glow-big.on{
+    opacity: 1;
+    transform: scale(1);
+}
 
 /* Voal alb (curtain) pentru trecerea spre invitație */
 .envelope-veil{
