@@ -366,12 +366,12 @@ document.addEventListener('DOMContentLoaded', () => {
             invitation.hidden = false;
             invitation.classList.add('appear');
             window.scrollTo({ top: 0, behavior: 'instant' });
-        }, 1900);
+        }, 1500);
 
         // 6) ascundem plicul
         setTimeout(() => {
             screen.style.display = 'none';
-        }, 2300);
+        }, 2000);
     });
 });
 
