@@ -16,9 +16,6 @@
     revealables.forEach(el => io.observe(el));
 })();
 
-/* ==============
-   Parallax (discret, performant)
-   ============== */
 (function(){
     const els = [...document.querySelectorAll('[data-parallax]')];
     if(!els.length) return;
@@ -89,14 +86,14 @@
     const kidsMinus    = numKidsBox?.querySelector('.minus');
     const kidsPlus     = numKidsBox?.querySelector('.plus');
 
-    // function setSelectedHighlight(){
+    // function setSelectedHighlight(groupName){
     //     // highlight pentru etichetele attendance-box
     //     form.querySelectorAll('.attendance-box').forEach(l => l.classList.remove('selected'));
-    //     const checked = form.querySelector('input[name="attending"]:checked');
+    //     const checked = form.querySelector(`input[name="${groupName}"]:checked`);
     //     if(checked) checked.closest('.attendance-box').classList.add('selected');
     // }
 
-   function setSelectedHighlight(groupName){
+    function setSelectedHighlight(groupName){
         const inputs = form.querySelectorAll(`input[name="${groupName}"]`);
 
         inputs.forEach(input => {
@@ -146,7 +143,7 @@
         }
     }
 
-   function disableAccommodation(){
+    function disableAccommodation(){
         accommodationRadios.forEach(r => {
             r.checked = false;
             r.setAttribute('disabled', 'true');
@@ -195,7 +192,7 @@
     // init on load
     updateState();
 
-   accommodationRadios.forEach(r => r.addEventListener('change', () => {
+    accommodationRadios.forEach(r => r.addEventListener('change', () => {
         setSelectedHighlight("accommodation");
     }));
 
@@ -210,6 +207,7 @@
     modal?.addEventListener("click", (e) => {
         if (e.target === modal) modal.hidden = true;
     });
+
 
     // Securitate suplimentară la submit: dacă "nu", forțăm 0/0.
     form.addEventListener('submit', () => {
@@ -241,7 +239,7 @@
         const kids      = Number((form.querySelector('.number-box[data-name="kids"] input') || {}).value || 0);
         const message   = (form.querySelector('#message') || {}).value || '';
 
-         nameInput.addEventListener('input', () => {
+        nameInput.addEventListener('input', () => {
             err.textContent = '';
         });
 
@@ -260,6 +258,7 @@
         form.addEventListener('reset', () => {
             err.textContent = '';
         });
+
 
         // Validări minime
         if(!name){ err.textContent = 'Te rugăm să completezi numele.'; nameInput.focus(); return; }
@@ -289,7 +288,7 @@
             const data = await res.json().catch(() => ({}));
             if (data && data.ok) {
                 showToast('Mulțumim! Ți-am înregistrat confirmarea. 💛');
-                // opțional: form.reset(); și scoate „selected” de pe radiouri
+
             } else {
                 showToast('Ne pare rău, a apărut o eroare. Încearcă din nou.');
                 console.error('RSVP error:', data);
@@ -328,11 +327,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const flapWrap   = document.querySelector('.flap-wrap');   // <— containerul 3D
     const glowSmall  = document.querySelector('.glow-small');
-    const glowBig    = document.querySelector('.glow-big');
+    // const glowBig    = document.querySelector('.glow-big');
+    const envelopeBody = document.querySelector('.envelope-body');
     const veil       = document.querySelector('.envelope-veil');
     const invitation = document.getElementById('invitation-pages');
 
-    if (!sealBtn || !flapWrap || !glowSmall || !glowBig || !veil || !invitation) return;
+    if (!sealBtn || !flapWrap || !glowSmall || !envelopeBody || !veil || !invitation) return;
 
     sealBtn.addEventListener('click', () => {
         if (sound) { try { sound.currentTime = 0; sound.play(); } catch(_){} }
@@ -354,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 3) glow mare
         setTimeout(() => {
-            glowBig.classList.add('on');
+            envelopeBody.classList.add('glow-on');
         }, 1200);
 
         // 4) voal alb
@@ -374,8 +374,8 @@ document.addEventListener('DOMContentLoaded', () => {
             screen.style.display = 'none';
         }, 2300);
     });
-
 });
+
 window.addEventListener('load', () => {
     const flap = document.querySelector('.flap-wrap');
     if (flap) {
@@ -384,7 +384,6 @@ window.addEventListener('load', () => {
         flap.style.transform = old;   // Safari repaint trick
     }
 });
-
 /* global addeventatc */
 window.addeventasync = function(){
     addeventatc.direct = 1;
