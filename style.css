@@ -690,7 +690,7 @@ input:focus, textarea:focus{
     justify-items: center;
     padding: 0;
     background: #e7dccb;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 .envelope-scene{
@@ -709,6 +709,39 @@ input:focus, textarea:focus{
     object-fit: cover;
     z-index: 1;
 }
+
+.envelope-body::after{
+    content:"";
+    position: absolute;
+    left: 50%;
+    top: 60%;
+
+    width: 80%; height: 40%;
+    transform: translate(-50%, -50%) scale(0.9);
+
+    background: radial-gradient(circle,
+    rgba(255,240,200,0.9) 0%,
+    rgba(255,220,150,0.5) 30%,
+    rgba(255,210,140,0.15) 55%,
+    transparent 70%
+    );
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+            opacity 1.2s ease,
+            transform 1.6s ease;
+
+    will-change: opacity, transform;
+
+}
+
+.envelope-body.glow-on::after{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
 
 /* CLAPETA + SIGILIU – aceleași transformări 3D */
 .flap-wrap{
@@ -819,6 +852,7 @@ input:focus, textarea:focus{
 /*.glow-big.on{ opacity: 1; }*/
 
 .glow-big{
+    display: none !important;
     position: absolute;
 
     top: 55%;
@@ -941,3 +975,5 @@ input:focus, textarea:focus{
     .glow-big,
     .envelope-veil{ transition: none !important; }
 }
+
+
