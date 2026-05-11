@@ -869,3 +869,40 @@ input:focus, textarea:focus{
     .glow-big
     /*.envelope-veil{ transition: none !important; }*/
 }
+
+/* ===========================
+   MUSIC PLAYER
+   =========================== */
+
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+
+    border: none;
+    cursor: pointer;
+
+    background: #7a6a5d;
+    color: white;
+    font-size: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.music-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+
+.music-btn:active {
+    transform: scale(0.95);
+}
