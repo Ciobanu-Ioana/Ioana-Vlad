@@ -372,20 +372,60 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             screen.style.display = 'none';
         }, 2000);
+
+        // 7) music
+        setTimeout(() => {
+            document.getElementById("invitation-pages").style.display = "block";
+            document.getElementById("musicToggle").style.display = "flex";
+            startMusicAfterEnvelope();
+        }, 2300);
     });
 });
 
 window.addEventListener('load', () => {
     const flap = document.querySelector('.flap-wrap');
     if (flap) {
-        // forțează rerandarea clapetei după ce sunt încărcate imaginile
         const old = flap.style.transform;
-        flap.style.transform = old;   // Safari repaint trick
+        flap.style.transform = old;
     }
 });
-/* global addeventatc */
+
 window.addeventasync = function(){
     addeventatc.direct = 1;
     addeventatc.caldropdown = 0;
 
 };
+
+/* ==============
+   MUSIC PLAYER
+   ============== */
+
+    const music = document.getElementById("bgMusic");
+    const toggleBtn = document.getElementById("musicToggle");
+
+    let isPlaying = false;
+
+    function startMusicAfterEnvelope() {
+    if (!isPlaying) {
+    music.volume = 0.2;
+    music.play().then(() => {
+    isPlaying = true;
+    toggleBtn.textContent = "🔊";
+}).catch(() => {
+    console.log("Autoplay blocat, user trebuie sa interactioneze.");
+});
+}
+}
+
+    toggleBtn.addEventListener("click", () => {
+    if (isPlaying) {
+    music.pause();
+    toggleBtn.textContent = "🔇";
+    isPlaying = false;
+} else {
+    music.play();
+    toggleBtn.textContent = "🔊";
+    isPlaying = true;
+}
+});
+
