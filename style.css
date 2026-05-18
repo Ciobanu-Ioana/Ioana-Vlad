@@ -659,9 +659,10 @@ input:focus, textarea:focus{
     .corner-decor{ width: clamp(60px, 16vw, 120px); opacity: .22; }
     .hero-decor{ opacity: .28; }
     .story-image img{ max-width: clamp(240px, 60vw, 380px); }
+   .date-badge{ left: 25px; bottom: 25px; }
 }
 @media (max-width: 480px){
-    .date-badge{ left: 35px; bottom: 35px; }
+    .date-badge{ left: 18px; bottom: 18px; }
     .image-page3{ width: clamp(90px, 28vw, 180px); }
 }
 
