@@ -661,7 +661,7 @@ input:focus, textarea:focus{
     .story-image img{ max-width: clamp(240px, 60vw, 380px); }
 }
 @media (max-width: 480px){
-    .date-badge{ left: 25px; bottom: 25px; }
+    .date-badge{ left: 35px; bottom: 35px; }
     .image-page3{ width: clamp(90px, 28vw, 180px); }
 }
 
